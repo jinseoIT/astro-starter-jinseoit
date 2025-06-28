@@ -2,6 +2,8 @@
 
 Astro 기반으로 제작된 개인 기술 블로그 스타터 템플릿으로, 깔끔한 디자인과 빠른 성능을 갖춘 정적 웹사이트입니다.
 
+[🖥️ Live Demo (Vercel)](https://astro-starter-jinseoit.vercel.app/)
+
 ![Astro Starter Jinseoit](/public/preview.png)
 
 ## ✨ 주요 기능
