@@ -26,7 +26,6 @@ Astro 기반으로 제작된 개인 기술 블로그 스타터 템플릿으로, 
 - **언어**: [TypeScript](https://www.typescriptlang.org/) - 타입 안전성
 - **폰트**: [Pretendard](https://cactus.tistory.com/232) - 한글 최적화 폰트
 - **패키지 매니저**: [pnpm](https://pnpm.io/) - 빠른 패키지 설치
-- **아이콘**: [Lucide Icons](https://lucide.dev/) - 깔끔한 SVG 아이콘
 
 ## 📁 프로젝트 구조
 
@@ -248,6 +247,65 @@ GitHub Actions를 사용하여 자동 배포 설정 가능
 ### Cloudflare Pages
 
 Git 저장소 연결 후 자동 배포 지원
+
+## 🔍 SEO 설정 및 크롤링 제어
+
+### 현재 SEO 설정
+
+이 프로젝트는 **테스트용 배포를 위해 SEO 크롤링이 차단된 상태**입니다.
+
+#### 🔒 크롤링 차단 설정
+
+- **robots.txt**: `public/robots.txt`에서 모든 검색 엔진 크롤링 차단
+- **noindex 메타 태그**: `<meta name="robots" content="noindex, nofollow">`로 검색 엔진 인덱싱 차단
+- **사이트맵**: 자동 생성되지만 크롤링은 차단됨
+
+#### 📋 SEO 크롤링 활성화 방법
+
+프로덕션 배포 시 SEO 크롤링을 활성화하려면:
+
+1. **robots.txt 수정**:
+
+   ```txt
+   User-agent: *
+   Allow: /
+
+   Sitemap: https://your-domain.com/sitemap-index.xml
+   ```
+
+2. **noindex 메타 태그 제거**:
+   `src/components/BaseHead.astro`에서 다음 라인 제거:
+
+   ```html
+   <meta name="robots" content="noindex, nofollow" />
+   ```
+
+3. **사이트 URL 설정**:
+   `astro.config.mjs`에서 실제 도메인으로 변경:
+   ```javascript
+   export default defineConfig({
+     site: "https://your-domain.com",
+     // ...
+   });
+   ```
+
+#### 🎯 SEO 최적화 기능
+
+프로젝트에 포함된 SEO 최적화 기능들:
+
+- **메타 태그**: 완전한 Open Graph, Twitter Card 지원
+- **사이트맵**: 자동 생성 (`/sitemap-index.xml`)
+- **RSS 피드**: 자동 생성 (`/rss.xml`)
+- **구조화된 데이터**: 마크다운 헤딩 자동 링크
+- **이미지 최적화**: 적응형 이미지 및 WebP 지원
+- **폰트 최적화**: woff2 포맷 및 preload 설정
+
+#### 🔧 SEO 설정 파일 위치
+
+- **메타 태그**: `src/components/BaseHead.astro`
+- **사이트 정보**: `src/constants/site.ts`
+- **robots.txt**: `public/robots.txt`
+- **사이트맵 설정**: `astro.config.mjs`
 
 ## 📄 라이선스
 
