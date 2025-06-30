@@ -54,14 +54,15 @@
 }
 
 .article blockquote {
-  padding-top: 0.125rem;
+  /* padding-top: 0.125rem;
   padding-bottom: 0.125rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
+  padding-left: 1.5rem;
+  padding-right: 0.75rem; */
+  padding: 0.125rem 0.75rem 0.125rem 1.5rem;
   font-style: normal !important;
-  border-radius: 0.25rem;
-  background-color: var(--primary-color-transparent) !important;
-  border-inline-start-color: var(--primary-color) !important;
+  border-top-right-radius: 0.25rem;
+  background-color: rgba(120, 120, 120, 0.1);
+  border-left: 4px solid var(--primary-color) !important;
   margin: 1rem 0;
 }
 
